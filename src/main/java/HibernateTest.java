@@ -1,7 +1,8 @@
+import jpa1.Appartment;
+import jpa1.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -25,10 +26,10 @@ public class HibernateTest {
         a.addOwners(p2);
         a.addOwners(p);
 
-        //Person p3 = session.createQuery("Select p FROM Person p where id=2", Person.class);
-        Person p3 = session.get(Person.class, 1);
-        session.save(p3);
-        a.addOwners(p3);
+        //jpa1.Person p3 = session.createQuery("Select p FROM jpa1.Person p where id=2", jpa1.Person.class);
+        //jpa1.Person p3 = session.get(jpa1.Person.class, 1);
+       // session.save(p3);
+       // a.addOwners(p3);
 
         session.save(a);
 

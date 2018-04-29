@@ -1,3 +1,7 @@
+package jpa1;
+
+import jpa1.Person;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
