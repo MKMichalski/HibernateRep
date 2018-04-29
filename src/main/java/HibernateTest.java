@@ -1,6 +1,7 @@
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -17,14 +18,22 @@ public class HibernateTest {
 
         Person p = new Person("Mateusz", "Michalski");
         session.save(p);
+        Person p2 = new Person ("Krzysiek", "Kowalski");
+        session.save(p2);
 
         Appartment a = new Appartment("Lodz", "pomorska", "5");
-        Appartment b = new Appartment("Warszawa", "jakas", "50");
+        a.addOwners(p2);
+        a.addOwners(p);
+
+        //Person p3 = session.createQuery("Select p FROM Person p where id=2", Person.class);
+        Person p3 = session.get(Person.class, 1);
+        session.save(p3);
+        a.addOwners(p3);
+
         session.save(a);
-        session.save(b);
-        p.addAppartement(a);
-        p.addAppartement(b);
-        session.save(p);
+
+//        p.addAppartement(a);
+//        session.save(p);
 
         session.getTransaction().commit();
 

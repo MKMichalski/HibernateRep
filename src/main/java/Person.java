@@ -14,7 +14,7 @@ public class Person {
     String firstName;
     String lastName;
 
-    @OneToMany
+    @ManyToMany
     List<Appartment> appartments = new ArrayList<>();
 
     public List<Appartment> getAppartments() {
@@ -50,4 +50,5 @@ public class Person {
     public String getLastName() {
         return lastName;
     }
+
 }

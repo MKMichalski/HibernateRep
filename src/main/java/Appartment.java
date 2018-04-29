@@ -1,6 +1,9 @@
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -12,6 +15,9 @@ public class Appartment {
     String miasto;
     String Ulica;
     String numer;
+
+    @ManyToMany
+    List<Person> owners = new ArrayList<>();
 
     public Appartment(String miasto, String ulica, String numer) {
         this.miasto = miasto;
@@ -39,4 +45,10 @@ public class Appartment {
     public String getNumer() {
         return numer;
     }
+
+    public void addOwners(Person p){
+        owners.add(p);
+
+    }
+
 }
